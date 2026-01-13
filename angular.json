@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "demo-app": {
+    "product-management-angular-app": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/demo-app",
+            "outputPath": "dist/product-management-angular-app",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -62,10 +62,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "demo-app:build:production"
+              "buildTarget": "product-management-angular-app:build:production"
             },
             "development": {
-              "buildTarget": "demo-app:build:development"
+              "buildTarget": "product-management-angular-app:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -73,7 +73,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "demo-app:build"
+            "buildTarget": "product-management-angular-app:build"
           }
         },
         "test": {

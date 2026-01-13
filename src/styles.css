@@ -1,1 +1,181 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+/* ==============================
+   Global Reset & Base Styling
+   ============================== */
+* {
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f4f6f9;
+  color: #333;
+}
+
+/* ==============================
+   Page Title
+   ============================== */
+h2 {
+  text-align: center;
+  margin: 30px 0 20px;
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+/* ==============================
+   Form Styling
+   ============================== */
+form {
+  max-width: 700px;
+  margin: 0 auto 25px;
+  padding: 25px;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+form input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+form input:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.15);
+}
+
+/* Buttons inside form */
+form button {
+  padding: 10px 16px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+/* Add / Update button */
+form button[type="submit"] {
+  background-color: #3498db;
+  color: #fff;
+}
+
+form button[type="submit"]:hover {
+  background-color: #2980b9;
+}
+
+/* Clear button */
+form button[type="button"] {
+  background-color: #bdc3c7;
+  color: #2c3e50;
+}
+
+form button[type="button"]:hover {
+  background-color: #aab2b7;
+}
+
+/* Button hover effect */
+form button:hover {
+  transform: translateY(-1px);
+}
+
+/* ==============================
+   Divider
+   ============================== */
+hr {
+  max-width: 90%;
+  margin: 30px auto;
+  border: none;
+  border-top: 1px solid #ddd;
+}
+
+/* ==============================
+   Table Styling
+   ============================== */
+table {
+  width: 90%;
+  margin: 0 auto 40px;
+  border-collapse: collapse;
+  background-color: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+table th,
+table td {
+  padding: 12px 14px;
+  text-align: left;
+  font-size: 14px;
+}
+
+table th {
+  background-color: #34495e;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+table tr:nth-child(even) {
+  background-color: #f8f9fa;
+}
+
+table tr:hover {
+  background-color: #eef4fb;
+}
+
+/* ==============================
+   Action Buttons
+   ============================== */
+table button {
+  padding: 6px 10px;
+  font-size: 13px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  margin-right: 6px;
+}
+
+/* Edit button */
+table button:first-child {
+  background-color: #f1c40f;
+  color: #2c3e50;
+}
+
+table button:first-child:hover {
+  background-color: #d4ac0d;
+}
+
+/* Delete button */
+table button:last-child {
+  background-color: #e74c3c;
+  color: #ffffff;
+}
+
+table button:last-child:hover {
+  background-color: #c0392b;
+}
+
+/* ==============================
+   Responsive Design
+   ============================== */
+@media (max-width: 600px) {
+  form {
+    grid-template-columns: 1fr;
+  }
+
+  table {
+    width: 100%;
+  }
+}
