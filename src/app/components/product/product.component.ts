@@ -24,18 +24,31 @@ export class ProductComponent implements OnInit {
   }
 
   loadProducts(): void {
-    this.products = this.productService.getAll();
-  }
+  this.productService.getAll().subscribe({
+    next: (data) => {
+      this.products = data;
+    },
+    error: (err) => {
+      console.error('Failed to load products', err);
+    }
+  });
+}
 
   saveProduct(): void {
-    if (this.isEdit) {
-      this.productService.update(this.product);
-    } else {
-      this.productService.add({ ...this.product });
-    }
-    this.resetForm();
-    this.loadProducts();
+  if (this.isEdit && this.product.id) {
+    this.productService.update(this.product).subscribe(() => {
+      this.loadProducts();
+      this.resetForm();
+    });
+  } else {
+    const { id, ...productWithoutId } = this.product; // 👈 KEY LINE
+    this.productService.add(productWithoutId).subscribe(() => {
+      this.loadProducts();
+      this.resetForm();
+    });
   }
+}
+
 
   editProduct(p: Product): void {
     this.product = { ...p };
@@ -43,12 +56,13 @@ export class ProductComponent implements OnInit {
   }
 
   deleteProduct(id: number): void {
-    this.productService.delete(id);
+  this.productService.delete(id).subscribe(() => {
     this.loadProducts();
-  }
+  });
+}
 
   resetForm(): void {
-    this.product = { id: 0, name: '', price: 0, category: '' };
-    this.isEdit = false;
-  }
+  this.product = { name: '', price: null!, category: '' };
+  this.isEdit = false;
+}
 }
