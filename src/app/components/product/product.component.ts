@@ -55,7 +55,11 @@ export class ProductComponent implements OnInit {
     this.isEdit = true;
   }
 
-  deleteProduct(id: number): void {
+  deleteProduct(id?: number): void {
+  if (id === undefined) {
+    console.error('Product id is undefined');
+    return;
+  }
   this.productService.delete(id).subscribe(() => {
     this.loadProducts();
   });
